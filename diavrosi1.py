@@ -44,7 +44,7 @@ st.dataframe(df)
 csv = df.to_csv(index=False).encode('utf-8')
 st.download_button("⬇️ Κατέβασε τα αποτελέσματα σε CSV", csv, "διαβρωση.csv", "text/csv")
 
----
+st.markdown("---")
 
 ## Προσομοίωση Διάβρωσης με Animation
 
