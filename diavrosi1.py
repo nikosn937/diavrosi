@@ -9,7 +9,7 @@ soil_types = {'Άμμος': 2.0, 'Πηλός': 1.0, 'Βράχος': 0.5, 'Χαλ
 protection_factors = {'Καμία': 1.0, 'Κυματοθραύστες': 0.4, 'Τεχνητή παραλία': 0.5, 'Αναχώματα': 0.3}
 
 # Εικόνα παραλίας
-st.image("https://upload.wikimedia.org/wikipedia/commons/8/8e/Beach_wave.jpg", caption="Παραλία υπό διάβρωση", use_column_width=True)
+st.image("https://upload.wikimedia.org/wikipedia/commons/8/8e/Beach_wave.jpg", caption="Παραλία υπό διάβρωση", use_container_width=True)
 
 st.title("🌊 Εκπαιδευτικό Εργαλείο: Διάβρωση Παραλίας")
 st.markdown("**Πειραματίσου με διαφορετικές παραμέτρους και δες πώς η παραλία αλλάζει με τα χρόνια!**")
