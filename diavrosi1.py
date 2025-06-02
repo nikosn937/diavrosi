@@ -62,6 +62,24 @@ st.markdown("""
   - Γωνία πρόσπτωσης
   - Παρουσία έργων προστασίας
 """)
+import time
+
+st.markdown("### 🌊 Δες την ακτή σου να αλλάζει με τα χρόνια!")
+
+if st.button("🎬 Ξεκίνα Προσομοίωση με Animation"):
+    progress_bar = st.progress(0)
+    status = st.empty()
+    wave = st.empty()
+
+    for year in range(χρόνια + 1):
+        time.sleep(0.3)  # Ρύθμισε την ταχύτητα εδώ
+        progress = int((year / χρόνια) * 100)
+        progress_bar.progress(progress)
+        υποχώρηση_μέχρι_τώρα = erosion_rate * year
+        waves = "🌊" * (year % 10 + 1)
+        status.markdown(f"**Έτος {year}**: Υποχώρηση Ακτής **{υποχώρηση_μέχρι_τώρα:.2f} μέτρα**")
+        wave.markdown(f"{waves}")
+    status.success("Η προσομοίωση ολοκληρώθηκε! 🌅")
 
 
 # Footer
