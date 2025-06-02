@@ -63,6 +63,17 @@ st.markdown("""
   - Παρουσία έργων προστασίας
 """)
 
+import time
+
+st.markdown("### 🎬 Προσομοίωση σε πραγματικό χρόνο")
+if st.button("Ξεκίνα Προσομοίωση!"):
+    placeholder = st.empty()
+    for year in range(χρόνια + 1):
+        placeholder.slider("Έτος (προσομοίωση σε πραγματικό χρόνο)", 0, χρόνια, value=year, key=year)
+        time.sleep(0.2)
+    placeholder.success("Η προσομοίωση ολοκληρώθηκε!")
+
+
 # Footer
 st.markdown("---")
 st.markdown("Δημιουργήθηκε για εκπαιδευτικούς σκοπούς 🌍")
