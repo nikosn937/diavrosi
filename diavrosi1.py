@@ -107,9 +107,11 @@ with st.expander("❓ Τι είναι η Γωνία Πρόσκρουσης Κυ�
     """)
 
     # Ενσωμάτωση GIF με κίνηση κύματος
-    st.image("https://upload.wikimedia.org/wikipedia/commons/f/f6/Longshore_drift_animation.gif",
-             caption="Παρατήρησε πώς η γωνία των κυμάτων μετακινεί την άμμο κατά μήκος της ακτής.",
-             use_container_width=True)
+    st.image(
+    "https://upload.wikimedia.org/wikipedia/commons/2/2c/Beach_drift.gif",
+    caption="👉 Δες πώς τα κύματα που έρχονται λοξά μεταφέρουν την άμμο κατά μήκος της ακτής!",
+    use_container_width=True
+)
 
 
 # Footer
