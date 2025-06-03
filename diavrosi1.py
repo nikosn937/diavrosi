@@ -63,6 +63,38 @@ st.markdown("""
   - Παρουσία έργων προστασίας
 """)
 
+# Επεξήγηση Γωνίας Πρόσκρουσης
+with st.expander("❓ Τι είναι η Γωνία Πρόσκρουσης Κυμάτων;"):
+    st.markdown("""
+    Η **γωνία πρόσκρουσης** δείχνει από ποια κατεύθυνση έρχονται τα κύματα σε σχέση με την παραλία:
+
+    - 🟦 0° → Τα κύματα έρχονται ευθεία, χτυπούν κάθετα την ακτή → έντονη, κάθετη διάβρωση
+    - 🔁 45° → Τα κύματα έρχονται λοξά → παρασύρουν υλικά κατά μήκος της ακτής
+    - 🔄 90° → Τα κύματα κινούνται παράλληλα → μικρότερη κάθετη διάβρωση, μεγαλύτερη μεταφορά άμμου
+
+    Παρακάτω φαίνεται ένα απλό διάγραμμα:
+    """)
+
+    # Απλό σχήμα με matplotlib
+    fig_angle, ax_angle = plt.subplots(figsize=(6, 3))
+    ax_angle.plot([1, 1], [0, 1], 'b', linewidth=3, label='Ακτή')
+    ax_angle.annotate("Κύμα 0°", xy=(0.6, 0.2), xytext=(0.2, 0.0),
+                      arrowprops=dict(facecolor='green', arrowstyle='->'), fontsize=10)
+    ax_angle.annotate("Κύμα 45°", xy=(0.6, 0.5), xytext=(0.2, 0.6),
+                      arrowprops=dict(facecolor='orange', arrowstyle='->'), fontsize=10)
+    ax_angle.annotate("Κύμα 90°", xy=(0.6, 0.8), xytext=(0.2, 1.0),
+                      arrowprops=dict(facecolor='red', arrowstyle='->'), fontsize=10)
+
+    ax_angle.set_xlim(0, 1.2)
+    ax_angle.set_ylim(0, 1.1)
+    ax_angle.axis('off')
+    st.pyplot(fig_angle)
+
+    st.markdown("""
+    👉 Όταν αυξάνεται η γωνία πρόσκρουσης:
+    - Η **διάβρωση μειώνεται** κάθετα αλλά αυξάνεται η **μεταφορά άμμου** παράλληλα
+    - Η **παραλία μπορεί να αλλάξει σχήμα** χωρίς απαραίτητα να «χάνεται» αμέσως
+    """)
 
 # Footer
 st.markdown("---")
