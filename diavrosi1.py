@@ -41,7 +41,7 @@ with st.expander("❓ Τι είναι η Γωνία Πρόσκρουσης Κυ�
                       arrowprops=dict(arrowstyle='->', lw=2, color='orange'), fontsize=10, color='orange')
 
     # Κύμα 90° (παράλληλα)
-    ax_angle.annotate("90°", xy=(3.1, 0.5), xytext=(3.1, 1,5),
+    ax_angle.annotate("90°", xy=(3.1, 0.5), xytext=(3.1, 1.5),
                       arrowprops=dict(arrowstyle='->', lw=2, color='red'), fontsize=10, color='red')
 
     ax_angle.set_xlim(0, 6)
