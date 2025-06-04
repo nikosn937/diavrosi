@@ -48,9 +48,8 @@ ax_angle.set_xlim(0, 6)
 ax_angle.set_ylim(0, 3.5)
 ax_angle.axis('off')
 st.pyplot(fig_angle)
-
-
-    st.markdown("""
+# Επεξήγηση
+st.markdown("""
     👉 Όταν **μειώνεται** η γωνία:
     - Τα κύματα χτυπούν **πιο κάθετα** την ακτή → **μεγαλύτερη διάβρωση**
     
