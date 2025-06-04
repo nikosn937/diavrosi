@@ -26,28 +26,29 @@ with st.expander("❓ Τι είναι η Γωνία Πρόσκρουσης Κυ�
     Παρακάτω βλέπεις ένα απλό σχήμα:
     """)
 
-    # Διάγραμμα με matplotlib
-    fig_angle, ax_angle = plt.subplots(figsize=(6, 4))
+   # Διάγραμμα με matplotlib
+fig_angle, ax_angle = plt.subplots(figsize=(6, 4))
 
-    # Ακτή (κάθετη γραμμή)
-    ax_angle.plot([3, 3], [0, 3], color='saddlebrown', linewidth=5, label='Ακτή')
+# Ακτή (κάθετη γραμμή)
+ax_angle.plot([3, 3], [0, 3], color='saddlebrown', linewidth=5, label='Ακτή')
 
-    # Κύμα 0° (κάθετα)
-    ax_angle.annotate("0°", xy=(3, 1.5), xytext=(1.3, 1.5),
-                      arrowprops=dict(arrowstyle='->', lw=2, color='green'), fontsize=10, color='green')
+# Κύμα 0° (κάθετα προς την ακτή)
+ax_angle.annotate("0°", xy=(3, 1.5), xytext=(1.3, 1.5),
+                  arrowprops=dict(arrowstyle='->', lw=2, color='green'), fontsize=10, color='green')
 
-    # Κύμα 45°
-    ax_angle.annotate("45°", xy=(3, 2.5), xytext=(1.4, 3.2),
-                      arrowprops=dict(arrowstyle='->', lw=2, color='orange'), fontsize=10, color='orange')
+# Κύμα 45°
+ax_angle.annotate("45°", xy=(3, 2.5), xytext=(1.4, 3.2),
+                  arrowprops=dict(arrowstyle='->', lw=2, color='orange'), fontsize=10, color='orange')
 
-    # Κύμα 90° (παράλληλα)
-    ax_angle.annotate("90°", xy=(3.1, 0.5), xytext=(4.7, 0.5),
-                      arrowprops=dict(arrowstyle='->', lw=2, color='red'), fontsize=10, color='red')
+# Κύμα 90° (παράλληλα με την ακτή)
+ax_angle.annotate("90°", xy=(3.1, 2.8), xytext=(5, 2.8),
+                  arrowprops=dict(arrowstyle='->', lw=2, color='red'), fontsize=10, color='red')
 
-    ax_angle.set_xlim(0, 6)
-    ax_angle.set_ylim(0, 3.5)
-    ax_angle.axis('off')
-    st.pyplot(fig_angle)
+ax_angle.set_xlim(0, 6)
+ax_angle.set_ylim(0, 3.5)
+ax_angle.axis('off')
+st.pyplot(fig_angle)
+
 
     st.markdown("""
     👉 Όταν **μειώνεται** η γωνία:
