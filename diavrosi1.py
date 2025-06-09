@@ -6,7 +6,13 @@ from PIL import Image
 
 # Συντελεστές εδάφους και προστασίας
 soil_types = {'Άμμος': 2.0, 'Πηλός': 1.0, 'Βράχος': 0.5, 'Χαλίκι': 0.8}
-protection_factors = {'Καμία': 1.0, 'Κυματοθραύστες': 0.4, 'Τεχνητή παραλία': 0.5, 'Αναχώματα': 0.3}
+protection_factors = {
+    'Καμία': 1.0,
+    'Κυματοθραύστες': 0.4,
+    'Τεχνητή παραλία': 0.5,
+    'Αναχώματα': 0.3,
+    'Βλάστηση': 0.6  # ✅ Νέα επιλογή
+}
 
 # Εικόνα παραλίας
 st.image("https://www.patrisnews.com/wp-content/uploads/2014/11/diavrosh.jpg", caption="Παραλία υπό διάβρωση", use_container_width=True)
@@ -26,24 +32,14 @@ with st.expander("❓ Τι είναι η Γωνία Πρόσκρουσης Κυ�
     Παρακάτω βλέπεις ένα απλό σχήμα:
     """)
 
-    # Διάγραμμα με matplotlib
     fig_angle, ax_angle = plt.subplots(figsize=(6, 4))
-
-    # Ακτή (κάθετη γραμμή)
     ax_angle.plot([3, 3], [0, 3], color='saddlebrown', linewidth=5, label='Ακτή')
-
-    # Κύμα 0° (κάθετα)
     ax_angle.annotate("0°", xy=(3, 1.5), xytext=(1.3, 1.5),
                       arrowprops=dict(arrowstyle='->', lw=2, color='green'), fontsize=10, color='green')
-
-    # Κύμα 45°
     ax_angle.annotate("45°", xy=(3, 2.5), xytext=(1.4, 3.2),
                       arrowprops=dict(arrowstyle='->', lw=2, color='orange'), fontsize=10, color='orange')
-
-    # Κύμα 90° (παράλληλα)
     ax_angle.annotate("90°", xy=(3.1, 0.5), xytext=(3.1, 1.5),
                       arrowprops=dict(arrowstyle='->', lw=2, color='red'), fontsize=10, color='red')
-
     ax_angle.set_xlim(0, 6)
     ax_angle.set_ylim(0, 3.5)
     ax_angle.axis('off')
@@ -55,6 +51,17 @@ with st.expander("❓ Τι είναι η Γωνία Πρόσκρουσης Κυ�
     
     👉 Όταν **αυξάνεται** η γωνία:
     - Τα κύματα κινούνται **παράλληλα** → **λιγότερη κάθετη διάβρωση**, αλλά πιθανή μεταφορά άμμου κατά μήκος της ακτής
+    """)
+
+# 💡 Νέα επεξήγηση για τη βλάστηση
+with st.expander("🌿 Πώς βοηθά η Βλάστηση;"):
+    st.markdown("""
+    Η **φυσική βλάστηση** όπως τα φυτά στις αμμοθίνες ή οι θάμνοι κοντά στην ακτή:
+    - Μειώνουν τη διάβρωση **κρατώντας σταθερό το έδαφος**
+    - Φιλτράρουν την ενέργεια των κυμάτων
+    - Συμβάλλουν στην **οικολογική ισορροπία** της παραλίας
+
+    ✅ Είναι ένα **οικολογικό και βιώσιμο μέτρο προστασίας**!
     """)
 
 # Εισαγωγή παραμέτρων
@@ -72,13 +79,11 @@ with col2:
 K = soil_types[τύπος_ακτής]
 P = protection_factors[έργο_προστασίας]
 θ_rad = np.radians(γωνία)
-
-# Χρησιμοποιούμε cos(θ) για να ταιριάζει με την έννοια ότι 0° = μέγιστη διάβρωση
 erosion_rate = K * ύψος_κύματος * συχνότητα * abs(np.cos(θ_rad)) * P
 έτη = np.arange(0, χρόνια + 1)
 υποχώρηση = erosion_rate * έτη
 
-# Εμφάνιση αποτελεσμάτων
+# Αποτελέσματα
 st.subheader("📊 Αποτελέσματα:")
 st.write(f"**Ρυθμός Διάβρωσης**: {erosion_rate:.2f} m/έτος")
 df = pd.DataFrame({"Έτος": έτη, "Υποχώρηση Ακτής (m)": υποχώρηση})
@@ -88,7 +93,7 @@ st.dataframe(df)
 csv = df.to_csv(index=False).encode('utf-8')
 st.download_button("⬇️ Κατέβασε τα αποτελέσματα σε CSV", csv, "διαβρωση.csv", "text/csv")
 
-# Γράφημα
+# Διάγραμμα
 fig, ax = plt.subplots()
 ax.plot(έτη, υποχώρηση, marker='o', color='teal')
 ax.set_xlabel("Έτη")
@@ -105,7 +110,7 @@ st.markdown("""
   - Ύψος και συχνότητα κύματος
   - Τύπο εδάφους
   - Γωνία πρόσκρουσης (πιο κάθετη = πιο έντονη)
-  - Παρουσία έργων προστασίας
+  - Παρουσία έργων προστασίας (π.χ. αναχώματα, βλάστηση, τεχνητή παραλία)
 """)
 
 # Footer
